@@ -1,0 +1,125 @@
+# Runtime parameters for the proton imaging unit test.
+
+basenm               = "modu3d_"    # has to match the basename of the checkpoint file
+
+useProtonImaging     = .true.
+
+checkpointFileIntervalStep = 0
+
+checkpointFileNumber =  2
+restart              = .true.
+
+useConductivity      = .false.
+useDiffuse           = .false.
+useEnergyDeposition  = .false.
+useHeatexchange      = .false.
+useOpacity           = .false.
+useHydro             = .false.
+
+##########################
+#  PARTICLES PARAMETERS  #
+##########################
+
+keepLostParticles  = .false.
+
+###############################
+#  PROTON IMAGING PARAMETERS  #
+###############################
+
+pi_maxProtonCount            = 1600000
+pi_printBeams                = .true.
+pi_printMain                 = .true.
+pi_printDetectors            = .true.
+pi_printProtons              = .false.
+pi_cellStepTolerance         = 1.0e-06
+pi_cellWallThicknessFactor   = 1.0e-06
+pi_ignoreElectricalField     = .false.        # default true
+pi_recordOffscreenProtons    = .false.       # default false
+pi_screenProtonBucketSize    = 1000000
+pi_RungeKuttaMethod          = "CashKarp45"  # is default, others -> BogShamp23,Fehlberg34
+pi_recalculateCellData       = .true.
+pi_opaqueBoundaries          = .true.
+pi_IOaddProtonsDomain2Screen = .true.
+pi_flagDomainMissingProtons  = .false.
+
+###############
+#  DETECTORS  #
+###############
+
+pi_numberOfDetectors = 1
+
+pi_detectorCenterX_1           = 0.0         # irrelevant (detector aligned wrt beam)
+pi_detectorCenterY_1           = 0.0         # irrelevant (detector aligned wrt beam)
+pi_detectorCenterZ_1           = 0.0         # irrelevant (detector aligned wrt beam)
+pi_detectorNormalX_1           = 0.0         # irrelevant (detector aligned wrt beam)
+pi_detectorNormalY_1           = 0.0         # irrelevant (detector aligned wrt beam)
+pi_detectorNormalZ_1           = 0.0         # irrelevant (detector aligned wrt beam)
+pi_detectorSideLength_1        = 5.0
+pi_detectorSideTiltingAngle_1  = 0.0
+pi_detectorSideTiltingAxis_1   = "x"
+pi_detectorAlignWRTbeamNr_1    = 1           # place detector along beam 1 path
+#pi_protonDeterminism          = .true.
+pi_detectorDist2BeamCapsule_1  = 12.8
+
+###########
+#  BEAMS  #
+###########
+
+pi_numberOfBeams = 1
+
+pi_beamCapsuleX_1                 = 0.0e-04 # 170.0e-04
+pi_beamCapsuleY_1                 = 0.0
+pi_beamCapsuleZ_1                 = 0.8  # 0.45
+pi_beamCapsuleRadius_1            = 0.001        # radius of beam cone at lens
+pi_beamCapsuleGrainLevel_1        = 0
+pi_beamTargetX_1                  = 0.0e-04 # 170.0e-04
+pi_beamTargetY_1                  = 0.0
+pi_beamTargetZ_1                  = 0.0
+pi_beamApertureAngle_1            = 5.0           # conical aperture angle (degrees)
+pi_beamTime2Launch_1              = 0.0          # do it immediately
+pi_beamDetector_1                 = 1            # target detector screen number
+pi_beamNumberOfProtons_1          = 7000000        # number of protons to be fired from beam
+pi_beamNoBoundaryCondition_1      = .true.       # ignore domain boundary condition ?
+pi_beamProtonEnergy_1             = 7.0         # MeV
+pi_useParabolicApproximation      = .true.
+
+#pi_useIOprotonPlot                = .true.
+#pi_IOnumberOfProtons2Plot         = 7000000
+##########################
+# SIMMULATION PARAMETERS #
+##########################
+
+sim_printBlockVariables    = .false.
+
+#######################
+#   TIME PARAMETERS   #
+#######################
+tmax           = 1.0e-08
+dtmin          = 1.0e-15  # irrelevant -> no Hydro
+dtinit         = 1.0e-14  # irrelevant -> no Hydro
+dtmax          = 1.0e-11  # irrelevant -> no Hydro
+nend           = 1        # irrelevant -> no Hydro
+
+#######################
+#   MESH PARAMETERS   #
+#######################
+
+lrefine_max = 1
+lrefine_min = 1
+nblockx = 15
+nblocky = 20
+nblockz = 15
+
+xmin = -360.0e-04
+xmax =  360.0e-04
+ymin = -480.0e-04
+ymax =  480.0e-04
+zmin = -360.0e-04
+zmax =  360.0e-04
+
+xl_boundary_type = "outflow"
+xr_boundary_type = "outflow"
+yl_boundary_type = "outflow"
+yr_boundary_type = "outflow"
+zl_boundary_type = "outflow"
+zr_boundary_type = "outflow"
