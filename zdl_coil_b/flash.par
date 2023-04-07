@@ -1,0 +1,361 @@
+run_comment = "zdl_coil"
+log_file    = "zdl_coil.log"
+basenm      = "zdl_coil_"
+
+
+##########################
+#                        #
+#     I/O PARAMETERS     #
+#                        #
+##########################
+
+### Checkpoint Options  ###
+checkpointFileIntervalTime = 1.0e-10
+#checkpointFileIntervalStep = 100
+
+### Plot Options ###
+plotFileNumber       = 0
+#plotFileIntervalStep = 100
+plotFileIntervalTime = 1.0e-10
+plot_var_1           = "dens"
+plot_var_2           = "elex"
+plot_var_3           = "tele"
+plot_var_4           = "tion"
+plot_var_5           = "trad"
+plot_var_6           = "ye  "
+plot_var_7           = "vely"
+plot_var_8           = "cham"
+plot_var_9           = "targ"
+plot_var_10          = "elez"
+plot_var_11          = "eley"
+plot_var_12          = "pres"
+plot_var_13          = "velx"
+plot_var_14          = "magx"
+plot_var_15	     = "magy"
+plot_var_16          = "magz"
+### Restart Options ###
+restart              = .false.
+checkpointFileNumber = 0
+
+########################################
+#                                      #
+#     RADIATION/OPACITY PARAMETERS     #
+#                                      #
+########################################
+rt_useMGD       = .true.
+rt_mgdNumGroups = 6
+rt_mgdBounds_1  = 1.0e-01
+rt_mgdBounds_2  = 1.0e+00
+rt_mgdBounds_3  = 1.0e+01
+rt_mgdBounds_4  = 1.0e+02
+rt_mgdBounds_5  = 1.0e+03
+rt_mgdBounds_6  = 1.0e+04
+rt_mgdBounds_7  = 1.0e+05
+rt_mgdFlMode    = "fl_harmonic"
+rt_mgdFlCoef    = 1.0
+
+rt_mgdXlBoundaryType = "vacuum"
+rt_mgdXrBoundaryType = "vacuum"
+rt_mgdYlBoundaryType = "vacuum"
+rt_mgdYrBoundaryType = "vacuum"  #changed.
+rt_mgdZlBoundaryType = "reflecting"
+rt_mgdZrBoundaryType = "reflecting"
+
+useOpacity     = .true.
+
+### SET CHAMBER (HELIUM) OPACITY OPTIONS ###
+op_chamAbsorb   = "op_tabpa"
+op_chamEmiss    = "op_tabpe"
+op_chamTrans    = "op_tabro"
+op_chamFileType = "ionmix4"
+op_chamFileName = "HeLowDensnonLTE2.cn4"
+
+### SET TARGET (Al) OPACITY OPTIONS ###
+op_targAbsorb   = "op_tabpa"
+op_targEmiss    = "op_tabpe"
+op_targTrans    = "op_tabro"
+op_targFileType = "ionmix4"
+op_targFileName = "CH_propaceosOpacity.cn4"
+
+### SET TARGET (Cu) OPACITY OPTIONS ###
+op_tar2Absorb   = "op_tabpa"
+op_tar2Emiss    = "op_tabpe"
+op_tar2Trans    = "op_tabro"
+op_tar2FileType = "ionmix4"
+op_tar2FileName = "Cu-flash-nonLTE.cn4"
+
+# ### SET TARGET2 (Zn) OPACITY OPTIONS ###
+# op_tar2Absorb   = "op_tabpa"
+# op_tar2Emiss    = "op_tabpe"
+# op_tar2Trans    = "op_tabro"
+# op_tar2FileType = "ionmix4"
+# op_tar2FileName = "Zn6_opacity.cn4"
+
+### SET TARGET3 (Cu) OPACITY OPTIONS ###
+# op_tar3Absorb   = "op_tabpa"
+# op_tar3Emiss    = "op_tabpe"
+# op_tar3Trans    = "op_tabro"
+# op_tar3FileType = "ionmix4"
+# op_tar3FileName = "Cu-flash-nonLTE.cn4"
+
+
+############################
+#                          #
+#     LASER PARAMETERS     #
+#                          #
+############################
+useEnergyDeposition = .true.
+ed_maxRayCount      = 10000
+ed_gradOrder        = 2
+
+# Activate 3D-in-2D ray trace:
+ed_laser3Din2D           = .false.
+ed_laser3Din2DwedgeAngle = 0.1
+
+
+### LASER IO OPTIONS ###
+ed_useLaserIO                  = .false.
+ed_laserIOMaxNumberOfPositions = 10000
+ed_laserIOMaxNumberOfRays      = 128
+
+### SETUP LASER PULSES ###
+ed_numberOfPulses = 1
+
+# Define Pulse 1:
+ed_numberOfSections_1 = 4
+ed_time_1_1  = 0.0
+ed_time_1_2  = 0.01e-09
+ed_time_1_3  = 0.99e-09
+ed_time_1_4  = 1.00e-09
+
+ed_power_1_1 = 0.0
+ed_power_1_2 = 1040e+09
+ed_power_1_3 = 1040e+09
+ed_power_1_4 = 0.0
+
+
+
+### SETUP LASER BEAM ###
+ed_numberOfBeams = 1
+
+# Setup Gaussian Beam:
+ed_lensX_1            = -10.0
+ed_lensY_1            = -0.15
+ed_lensZ_1            =   0.0
+
+ed_targetX_1          = -3500.0e-04
+ed_targetY_1          =  0.0e-04
+ed_targetZ_1          =  0.0e-04
+
+ed_targetSemiAxisMajor_1        =  150.0e-04
+ed_targetSemiAxisMinor_1        =  150.0e-04
+
+ed_semiAxisMajorTorsionAxis_1  = "x"
+ed_semiAxisMajorTorsionAngle_1     = 0.0
+
+ed_pulseNumber_1      =  1        
+ed_wavelength_1       =  0.527
+ed_crossSectionFunctionType_1   =  "gaussian1D" # 2D Gaussian Beam
+ed_gridType_1 = "regular1D"
+ed_gaussianExponent_1    =  2.0
+ed_gaussianRadiusMajor_1     =  63.70e-04  # focus_d = 150
+ed_gaussianRadiusMinor_1     =  63.70e-04  # 1.201122e-03
+ed_lensSemiAxisMajor_1 = 10
+ed_numberOfRays_1          =  4096
+ed_gridnRadialTics_1=128
+
+
+#################################
+#                               #
+#     CONDUCTION PARAMETERS     #
+#                               #
+#################################
+useDiffuse      = .true.
+useConductivity = .true.
+diff_useEleCond = .true.
+diff_eleFlMode  = "fl_larsen"
+diff_eleFlCoef  = 0.06
+diff_thetaImplct = 1.0
+
+diff_eleXlBoundaryType = "outflow"
+diff_eleXrBoundaryType = "outflow"
+diff_eleYlBoundaryType = "outflow"
+diff_eleYrBoundaryType = "outflow"
+diff_eleZlBoundaryType = "outflow"
+diff_eleZrBoundaryType = "outflow"
+
+
+####################################
+#                                  #
+#     HEAT EXCHANGE PARAMETERS     #
+#                                  #
+####################################
+useHeatexchange = .true.
+
+
+##########################
+#                        #
+#     EOS PARAMETERS     #
+#                        #
+##########################
+eosModeInit      = "dens_temp_gather"
+smallt           = 1.0
+smallx           = 1.0e-99
+eos_useLogTables = .false.
+
+eos_maxNewton    = 20000000 #default is 50
+
+############################
+#                          #
+#     HYDRO PARAMETERS     #
+#                          #
+############################
+useHydro = .true.
+
+order            = 2        # Interpolation order (first/second/third/fifth order)
+slopeLimiter     = "minmod" # Slope limiters (minmod, mc, vanLeer, hybrid, limited)
+LimitedSlopeBeta = 1.       # Slope parameter for the "limited" slope by Toro
+charLimiting     = .true.   # Characteristic limiting vs. Primitive limiting
+use_avisc        = .true.   # use artificial viscosity (originally for PPM)
+cvisc            = 0.1      # coefficient for artificial viscosity
+use_flattening   = .false.  # use flattening (dissipative) (originally for PPM)
+use_steepening   = .false.  # use contact steepening (originally for PPM)
+use_upwindTVD    = .false.  # use upwind biased TVD slope for PPM (need nguard=6)
+RiemannSolver    = "LLF"   # Roe, HLL, HLLC, LLF, Marquina, hybrid
+entropy          = .false.  # Entropy fix for the Roe solver
+shockDetect      = .true.  # Shock Detect for numerical stability
+use_hybridOrder  = .true.   # Enforce Riemann density jump
+
+# Hydro boundary conditions:
+xl_boundary_type = "outflow"
+xr_boundary_type = "outflow"
+yl_boundary_type = "outflow"
+yr_boundary_type = "outflow"
+zl_boundary_type = "outflow"
+zr_boundary_type = "outflow"
+
+
+##############################
+#                            #
+#     INITIAL CONDITIONS     #
+#                            #
+##############################
+
+#sim_magx = 0.0
+#sim_magy = 0.0 ##-12400.0  # 1.24T
+#sim_magz = 0.0
+
+useDipole = .true.
+#sim_magfac = 42.2647  #3.88T
+
+sim_targLength  =  3000.0e-04
+sim_targThick   =    10.0e-04
+# sim_targWidth   =  500.0e-04
+sim_targ2Length =  3000.0e-04 
+sim_targ2Thick  =   160.0e-04
+sim_targAmplitude  =  900.0e-04
+sim_targPeriod  =  560.0e-04 
+sim_targDist    =  3500.0e-04
+# sim_targ3Length = 1000.0e-04
+
+sim_targetRadius = 100.0e-04
+sim_targetHeight = 40.0e-04
+sim_vacuumHeight = 20.0e-04
+
+
+# Target material defaults set for CH at room temperature:
+sim_rhoTarg  = 1.05    #g/cc
+sim_teleTarg = 290.11375
+sim_tionTarg = 290.11375
+sim_tradTarg = 290.11375
+ms_targA = 6.5
+ms_targZ = 3.5
+ms_targZMin = 0.02
+eos_targEosType = "eos_tab"
+eos_targSubType = "ionmix4"
+eos_targTableFile = "CH_propaceos.cn4"
+
+
+# Target2 material defaults set for Cu at room temperature:
+sim_rhoTar2  = 8.96    #g/cc
+sim_teleTar2 = 290.11375
+sim_tionTar2 = 290.11375
+sim_tradTar2 = 290.11375
+ms_tar2A = 63.5
+ms_tar2Z = 29
+#ms_tar2ZMin = 0.02
+eos_tar2EosType = "eos_tab"
+eos_tar2SubType = "ionmix4"
+eos_tar2TableFile = "cu-imx-001.cn4"
+
+# Target3 material defaults set for Al at room temperature:
+# sim_rhoTar3  = 8.96
+# sim_teleTar3 = 290.11375
+# sim_tionTar3 = 290.11375
+# sim_tradTar3 = 290.11375
+# ms_tar3A = 63.5
+# ms_tar3Z = 29.0
+# # ms_tar3ZMin = 0.02
+# eos_tar3EosType = "eos_tab"
+# eos_tar3SubType = "ionmix4"
+# eos_tar3TableFile = "cu-imx-001.cn4"
+
+# Chamber material defaults set for Helium at pressure 1.6 mbar:
+sim_rhoCham  = 1.0e-06
+sim_teleCham = 290.11375
+sim_tionCham = 290.11375
+sim_tradCham = 290.11375
+ms_chamA = 4.002602
+ms_chamZ = 2.0
+eos_chamEosType = "eos_tab"
+eos_chamSubType = "ionmix4"
+eos_chamTableFile = "HeLowDensnonLTE2.cn4"
+
+
+###########################
+#                         #
+#     TIME PARAMETERS     #
+#                         #
+###########################
+tstep_change_factor = 1.1
+cfl            = 0.4
+dt_diff_factor = 1.0e+100 # Disable diffusion dt
+rt_dtFactor    = 1.0e+100
+hx_dtFactor    = 1.0e+100
+tmax           = 20.0e-09
+dtmin          = 1.0e-14
+dtinit         = 1.0e-13
+dtmax          = 1.0e-09
+nend           = 10000000
+
+
+###########################
+#                         #
+#     MESH PARAMETERS     #
+#                         #
+###########################
+geometry = "cartesian"
+
+# Domain size:
+xmin = -3760.0e-04
+xmax =  1200.0e-04
+ymin = -1600.0e-04
+ymax =  1600.0e-04
+# zmin =  -640.0e-04
+# zmax =   640.0e-04
+
+iprocs = 20
+jprocs = 16
+# kprocs = 8
+
+# Total number of blocks:
+nblockx = 62
+nblocky = 40     # nblocky=32 with refine=4, resolution = 2mm/32/16/8=0.5um
+
+lrefine_max = 1
+lrefine_min = 1
+refine_var_1 = "dens"
+refine_var_2 = "tele"
+
+useMagneticResistivity = .true.
+resistivity = 1.0e-10
